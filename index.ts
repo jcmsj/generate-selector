@@ -35,5 +35,5 @@ export default function generateSelector(elem: Element, ancestor: Element|null =
 		path.unshift(nthChild(elem, parent))
 		elem = parent;
 	};
-	return path.join(' > ').toLowerCase();
+	return path.join(' > ');
 };
