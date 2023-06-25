@@ -1,14 +1,30 @@
 {
-  "name": "generate-selector",
-  "version": "0.0.1",
+  "name": "@jcsj/generate-selector",
+  "version": "0.0.2",
   "description": "A simple function to generate an element's CSS selector.",
-  "main": "./index",
-  "public":"true",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "private": false,
   "type": "module",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc -w",
+    "build": "tsc"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "author": {
+    "email": "sanjuan.jeancarlo@gmail.com",
+    "name": "San Juan, Jean Carlo",
+    "url": "https://github.com/jcmsj/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jcmsj/generate-selector"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.3"
+  }
 }
