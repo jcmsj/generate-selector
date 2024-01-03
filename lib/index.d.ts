@@ -1,5 +1,10 @@
 export declare function toSafeCSSID(id: string): string;
-export declare function indexOf(elem: Element): number;
+/**
+ * @param elem
+ * Note that CSS nth-child starts at 1
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child#syntax
+ */
+export declare function indexOf(elem: Element): number | undefined;
 export declare function nthChild(l: Element): string;
 /**
  * Based on: https://stackoverflow.com/questions/8588301/how-to-generate-unique-css-selector-for-dom-element

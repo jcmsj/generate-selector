@@ -2,17 +2,19 @@ export function toSafeCSSID(id: string) {
 	return '#' + id.replace(".", "\\.")
 }
 
+/**
+ * @param elem 
+ * Note that CSS nth-child starts at 1
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/:nth-child#syntax
+ */
 export function indexOf(elem: Element) {
-	if (elem.parentElement) {
-		let i = 1; // CSS nth-child starts at 1
-		for (const child of elem.parentElement.children) {
-			if (elem.isSameNode(child))
-				return i;
+	let i = 1; 
+	for (const child of elem.parentElement!.children) {
+		if (elem.isSameNode(child))
+			return i;
 
-			i++;
-		}
+		i++;
 	}
-	return 0;
 }
 
 export function nthChild(l: Element) {
@@ -29,14 +31,16 @@ export default function generateSelector(elem: Element, ancestor: Element = docu
 	while (parent = elem.parentElement) {
 		if (ancestor.isSameNode(parent))
 			break;
-
 		if (elem.id) {
-			path.unshift(toSafeCSSID(elem.id))
+			path.push(toSafeCSSID(elem.id))
 			break;
 		}
 
-		path.unshift(nthChild(elem))
+		path.push(nthChild(elem))
 		elem = parent;
 	}
-	return path.join(' > ');
+
+	return path
+		.reverse()
+		.join(' > ');
 }
