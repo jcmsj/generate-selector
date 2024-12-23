@@ -1,5 +1,5 @@
 export function toSafeCSSID(id: string) {
-	return '#' + id.replace(".", "\\.")
+	return '#' + id.replaceAll(/./g, "\\.")
 }
 
 /**
@@ -26,14 +26,22 @@ export function nthChild(l: Element) {
  * @param {Element} ancestor stops here, defaults to `document.body`
  */
 export default function generateSelector(elem: Element, ancestor: Element = document.body): string {
-	let path: Array<String> = [],
+	let path: String[] = [],
 		parent: Element | null;
 	while (parent = elem.parentElement) {
 		if (ancestor.isSameNode(parent))
 			break;
 		if (elem.id) {
-			path.push(toSafeCSSID(elem.id))
-			break;
+			const safeID = toSafeCSSID(elem.id);
+			try {
+				const found = document.querySelector(safeID);
+				if (found && found.isSameNode(elem)) {
+					path.push(safeID);
+					break;
+				}
+			} catch {
+				// ignoring invalid id
+			}
 		}
 
 		path.push(nthChild(elem))

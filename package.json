@@ -1,6 +1,6 @@
 {
   "name": "@jcsj/generate-selector",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A simple function to generate an element's CSS selector.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -25,6 +25,7 @@
     "url": "https://github.com/jcmsj/generate-selector"
   },
   "devDependencies": {
-    "typescript": "^5.3.3"
-  }
+    "typescript": "^5.6.3"
+  },
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
 }
