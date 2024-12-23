@@ -1,4 +1,3 @@
-export declare function toSafeCSSID(id: string): string;
 /**
  * @param elem
  * Note that CSS nth-child starts at 1

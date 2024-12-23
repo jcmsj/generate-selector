@@ -1,6 +1,6 @@
 {
   "name": "@jcsj/generate-selector",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple function to generate an element's CSS selector.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
